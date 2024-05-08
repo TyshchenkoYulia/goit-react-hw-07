@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 30px;
+  /* margin: 30px; */
   padding-left: 60px;
   padding-right: 60px;
+  padding-top: 60px;
 }
 .wrapper {
   display: flex;
@@ -26,6 +27,11 @@
   border-radius: 20px;
 }
 body {
-  background-color: rgb(176, 162, 162);
-  height: 1600px;
+  background-image: url("../../img/bcg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  height: 1000px;
+  margin: 0;
 }
