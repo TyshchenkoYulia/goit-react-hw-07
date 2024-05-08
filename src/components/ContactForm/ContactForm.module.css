@@ -4,7 +4,7 @@
   border: 3px solid black;
   border-radius: 20px;
   width: 360px;
-  background-color: rgb(161, 137, 220);
+  background-color: rgb(117, 177, 217);
   color: black;
 }
 
@@ -26,6 +26,7 @@
 
 .errorMessage {
   margin-left: 28px;
+  color: rgb(237, 24, 24);
 }
 
 .btn {
