@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 360px;
+  background-color: rgb(161, 137, 220);
+  color: black;
+}
+
+.field {
+  width: 300px;
+  height: 30px;
+  font-size: 18px;
+  margin: auto;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-left: 28px;
+}
+
+.errorMessage {
+  margin-left: 28px;
+}
+
+.btn {
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 5px;
+  height: 40px;
+  background-color: white;
+  width: 150px;
+  display: block;
+  margin: 20px auto;
+}
