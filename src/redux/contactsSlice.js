@@ -12,7 +12,7 @@ const slice = createSlice({
       prepare(contact) {
         return {
           id: nanoid(),
-          ...contact,
+          value: contact,
         };
       },
     },
