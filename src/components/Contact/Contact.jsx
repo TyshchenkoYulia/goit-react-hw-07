@@ -4,7 +4,12 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsSlice";
 
-export default function Contact({ id, name, telNumber }) {
+export default function Contact({
+  contact: {
+    id,
+    value: { name, telNumber },
+  },
+}) {
   const dispatch = useDispatch();
   const handleDeleteContact = () => dispatch(deleteContact(id));
   return (

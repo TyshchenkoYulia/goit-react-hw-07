@@ -11,14 +11,17 @@ const slice = createSlice({
       },
       prepare(contact) {
         return {
-          id: nanoid(),
-          value: contact,
+          payload: {
+            id: nanoid(),
+            value: contact,
+          },
         };
       },
     },
     deleteContact(state, action) {
-      const index = state.findIndex((contact) => contact.id === action.payload);
-      state.splice(index, 1);
+      state.items = state.items.filter((contact) => {
+        contact.id !== action.payload.id;
+      });
     },
   },
 });
