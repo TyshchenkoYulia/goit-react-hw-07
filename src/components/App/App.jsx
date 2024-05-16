@@ -1,61 +1,21 @@
-// import { useEffect, useState } from "react";
-// import { nanoid } from "nanoid";
-// import * as Yup from "yup";
-// import contactCard from "../../contacts.json";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
+import Loader from "../Loader/Loader";
+import Error from "../Error/Error";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchContacts } from "../../redux/contactsOps";
 import css from "./App.module.css";
 
 export default function App() {
-  // const [contacts, setContacts] = useState(() => {
-  //   const savedUsers = window.localStorage.getItem("saved-contact");
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.contacts.loading);
+  const isError = useSelector((state) => state.contacts.error);
 
-  //   if (savedUsers !== null) {
-  //     return JSON.parse(savedUsers);
-  //   }
-
-  //   return contactCard;
-  // });
-
-  // const [search, setSearch] = useState("");
-
-  // useEffect(() => {
-  //   window.localStorage.setItem("saved-contact", JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const visibleContacts = contacts.filter((contact) =>
-  //   contact.name.toLowerCase().includes(search.toLowerCase())
-  // );
-
-  // const userSchema = Yup.object().shape({
-  //   name: Yup.string()
-  //     .min(3, "Too Short!")
-  //     .max(50, "Too Long!")
-  //     .required("Required"),
-  //   telNumber: Yup.string()
-  //     .min(7, "Too Short!")
-  //     .max(10, "Too Long!")
-  //     .required("Required"),
-  // });
-
-  // const initialValues = {
-  //   // id: nanoid(),
-  //   name: "",
-  //   telNumber: "",
-  // };
-
-  // const addUser = (newUser) => {
-  //   setContacts((previewContact) => {
-  //     return [...previewContact, { ...newUser, id: nanoid() }];
-  //   });
-  // };
-
-  // const deleteContact = (contactId) => {
-  //   setContacts((previewContact) => {
-  //     return previewContact.filter((contact) => contact.id !== contactId);
-  //   });
-  // };
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <div className={css.container}>
@@ -64,7 +24,8 @@ export default function App() {
         <ContactForm />
         <SearchBox />
       </div>
-
+      {isLoading && <Loader />}
+      {isError && <Error />}
       <ContactList />
     </div>
   );
