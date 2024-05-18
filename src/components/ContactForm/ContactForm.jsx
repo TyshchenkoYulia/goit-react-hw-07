@@ -7,7 +7,7 @@ import css from "./ContactForm.module.css";
 
 export default function ContactForm() {
   const userName = useId();
-  const userTelNumber = useId();
+  const userNumber = useId();
 
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export default function ContactForm() {
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    telNumber: Yup.string()
+    number: Yup.string()
       .min(7, "Too Short!")
       .max(10, "Too Long!")
       .required("Required"),
@@ -29,7 +29,7 @@ export default function ContactForm() {
 
   const initialValues = {
     name: "",
-    telNumber: "",
+    number: "",
   };
 
   return (
@@ -49,13 +49,13 @@ export default function ContactForm() {
           component="span"
         />
 
-        <label className={css.text} htmlFor={userTelNumber}>
+        <label className={css.text} htmlFor={userNumber}>
           Number
         </label>
-        <Field className={css.field} name="telNumber" id={userTelNumber} />
+        <Field className={css.field} name="number" id={userNumber} />
         <ErrorMessage
           className={css.errorMessage}
-          name="telNumber"
+          name="number"
           component="span"
         />
 
