@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
 import css from "./Contact.module.css";
 
-export default function Contact({ contact: { id, name, number } }) {
+export default function Contact({ contact: { id, name, telNumber } }) {
   const dispatch = useDispatch();
   const handleDeleteContact = () => dispatch(deleteContact(id));
 
@@ -17,7 +17,7 @@ export default function Contact({ contact: { id, name, number } }) {
         </p>
         <p className={css.telNumber}>
           <BsTelephoneFill className={css.icon} />
-          {number}
+          {telNumber}
         </p>
       </div>
 
